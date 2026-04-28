@@ -13,13 +13,13 @@ Status legend: [ ] todo  [~] in progress  [x] done
   - Neo4j's storage model vs. row-store vs. column-store
 
   Steps:
-  - [~] 1.1 — Understand the JOIN depth problem with a concrete example
+  - [x] 1.1 — Understand the JOIN depth problem with a concrete example
               Goal: Model movies/directors/actors in SQL, count JOINs needed
               for a 3-hop query. Feel the combinatorial explosion firsthand.
               Concept taught: JOIN depth, intermediate result sets, O(n) vs O(n^k)
               Key decision: when relational breaks down and why graph is the answer
 
-  - [ ] 1.2 — Learn the property graph model
+  - [~] 1.2 — Learn the property graph model
               Goal: Understand nodes, edges, properties, labels
               Concept taught: relationship as first-class citizen vs. foreign key
               Key decision: what makes an entity a node vs. a property?
