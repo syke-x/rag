@@ -39,6 +39,8 @@ def parse_tmdb_row(movie_row : dict , credit_rw : dict ) -> MovieModel :
         tagline = movie_row.get("tagline"),
         vote_average = movie_row.get("vote_average"),
         genres,
-        studios
+        studios,
+        directors,
+        top_cast
     )
 
