@@ -31,6 +31,28 @@ production fraud detection system.
 - **The graph solution:** Index-free adjacency — each node stores direct physical pointers to
   its neighbours. No lookup table, no index scan. Traversal cost = O(depth), not O(N^depth).
 
+### Phase 1, Step 1.2 — The Property Graph Model (2026-04-28)
+- **Four primitives:** Node (entity), Edge (named directed relationship), Property (key-value on either), Label (type tag on nodes)
+- **Key insight:** An edge is a first-class citizen with its own identity and properties — not a row in a join table
+- **Edge properties:** `role` on ACTED_IN, `year` on DIRECTED — data that belongs to the relationship, not either endpoint
+- **Node vs property rule:** If you ever want to traverse TO it or connect other things to it → Node. If purely descriptive → Property
+- **Multiple labels:** One Person node can carry both `:Actor` and `:Director` labels simultaneously
+
+### Phase 1, Step 1.3 — Neo4j Driver + Connection (2026-04-29)
+- **Driver choice:** Official `neo4j` driver over `py2neo` — py2neo abandoned (2022), neo4j 5.x incompatible, hides Cypher
+- **Bolt protocol:** Binary wire protocol, not HTTP — efficient graph type serialisation + connection pooling
+- **Object hierarchy:** `driver` (connection pool, long-lived) → `session` (unit of work) → `result` (cursor)
+- **Transaction model:** Auto-commit (`session.run()`) vs explicit (`session.begin_transaction()` + `tx.commit()`)
+- **Critical rule:** `with session.begin_transaction()` auto-ROLLBACKS on exit unless you explicitly call `tx.commit()`
+
+### Phase 1, Step 1.4 — Schema Design (2026-04-29)
+- **Design backwards from queries:** Every node type and relationship type must be justified by a query that needs it
+- **Nodes:** Movie, Person, Genre, Studio — each with integer ID as canonical key (links vector DB later)
+- **Relationships:** DIRECTED, ACTED_IN (with role + billing_order), BELONGS_TO, PRODUCED_BY, SEQUEL_OF
+- **Constraints:** Uniqueness constraints on canonical IDs — mandatory before any ingestion
+- **DETACH DELETE:** Required when deleting nodes with relationships; plain DELETE fails if edges exist
+- **Genre as node not property:** Storing genre as string property prevents traversal; must be a node to enable graph queries
+
 ---
 
 ## Key decisions log
