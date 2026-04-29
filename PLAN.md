@@ -29,7 +29,7 @@ Status legend: [ ] todo  [~] in progress  [x] done
               Concept taught: neo4j driver vs. py2neo — which and why?
               Key decision: driver choice rationale
 
-  - [~] 1.4 — Design the movie knowledge graph schema
+  - [x] 1.4 — Design the movie knowledge graph schema
               Goal: Finalize node types (Movie, Person, Genre, Studio) and
               edge types (DIRECTED, ACTED_IN, BELONGS_TO, PRODUCED_BY)
               Concept taught: schema design in a schemaless world
@@ -48,7 +48,7 @@ Status legend: [ ] todo  [~] in progress  [x] done
   - Batch ingestion vs. row-by-row: the N+1 problem
 
   Steps:
-  - [ ] 2.1 — Parse and clean raw dataset (MovieLens or TMDB CSV)
+  - [~] 2.1 — Parse and clean the raw dataset (MovieLens or TMDB CSV)
               Goal: Clean, typed Pydantic models for each entity type
               Concept taught: data contracts, Pydantic over dicts/dataclasses
               Key decision: which dataset and why?
