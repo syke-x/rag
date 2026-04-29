@@ -24,12 +24,12 @@ Status legend: [ ] todo  [~] in progress  [x] done
               Concept taught: relationship as first-class citizen vs. foreign key
               Key decision: what makes an entity a node vs. a property?
 
-  - [~] 1.3 — Install Neo4j via Docker and connect with the Python driver
+  - [x] 1.3 — Install Neo4j via Docker and connect with the Python driver
               Goal: Running Neo4j instance, basic Python connectivity verified
               Concept taught: neo4j driver vs. py2neo — which and why?
               Key decision: driver choice rationale
 
-  - [ ] 1.4 — Design the movie knowledge graph schema
+  - [~] 1.4 — Design the movie knowledge graph schema
               Goal: Finalize node types (Movie, Person, Genre, Studio) and
               edge types (DIRECTED, ACTED_IN, BELONGS_TO, PRODUCED_BY)
               Concept taught: schema design in a schemaless world
