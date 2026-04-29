@@ -19,12 +19,12 @@ Status legend: [ ] todo  [~] in progress  [x] done
               Concept taught: JOIN depth, intermediate result sets, O(n) vs O(n^k)
               Key decision: when relational breaks down and why graph is the answer
 
-  - [~] 1.2 — Learn the property graph model
+  - [x] 1.2 — Learn the property graph model
               Goal: Understand nodes, edges, properties, labels
               Concept taught: relationship as first-class citizen vs. foreign key
               Key decision: what makes an entity a node vs. a property?
 
-  - [ ] 1.3 — Install Neo4j via Docker, connect with the Python driver
+  - [~] 1.3 — Install Neo4j via Docker and connect with the Python driver
               Goal: Running Neo4j instance, basic Python connectivity verified
               Concept taught: neo4j driver vs. py2neo — which and why?
               Key decision: driver choice rationale

@@ -76,4 +76,4 @@ _Populated after Phase 7._
 
 | Session | Date | Steps completed | Key insight |
 |---|---|---|---|
-| 1 | 2026-04-28 | 1.1 ✅ | SQL JOIN depth → O(N^k) intermediate sets; graph uses index-free adjacency O(depth) instead |
+| 1 | 2026-04-28 | 1.1 ✅ 1.2 ✅ | Property graph: nodes, edges, labels, properties — edge as first-class citizen, node vs property rule |
