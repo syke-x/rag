@@ -1,2 +1,4 @@
 /venv
 /neo4j_data
+phase2/__pycache__/models.cpython-312.pyc
+phase2/__pycache__/parser.cpython-312.pyc
