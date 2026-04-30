@@ -53,6 +53,12 @@ production fraud detection system.
 - **DETACH DELETE:** Required when deleting nodes with relationships; plain DELETE fails if edges exist
 - **Genre as node not property:** Storing genre as string property prevents traversal; must be a node to enable graph queries
 
+### Phase 2, Step 2.1 — Data Contracts & Pydantic (2026-04-30)
+- **Why Pydantic:** Plain dicts don't validate structure; dataclasses don't enforce types at runtime. Pydantic guarantees data contracts between pipeline stages.
+- **Fail early:** Catching bad data (e.g., missing overview) at the parsing boundary is vastly cheaper than catching it inside the database driver or embedding model.
+- **Data shape:** Parsing nested JSON within CSVs requires careful handling and conversion into structured models before any DB interaction.
+- **Pandas edge case:** Merging dataframes on identical column names (e.g. `title`) renames them (`title_x`, `title_y`), which requires fallback logic in the parser.
+
 ---
 
 ## Key decisions log
@@ -99,3 +105,5 @@ _Populated after Phase 7._
 | Session | Date | Steps completed | Key insight |
 |---|---|---|---|
 | 1 | 2026-04-28 | 1.1 ✅ 1.2 ✅ | Property graph: nodes, edges, labels, properties — edge as first-class citizen, node vs property rule |
+| 2 | 2026-04-29 | 1.3 ✅ 1.4 ✅ | neo4j driver transaction model: auto-rollback on exit; schema designed backwards from queries |
+| 3 | 2026-04-30 | 2.1 ✅ | Pydantic as a strict data contract boundary before database ingestion |

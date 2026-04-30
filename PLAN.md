@@ -48,12 +48,12 @@ Status legend: [ ] todo  [~] in progress  [x] done
   - Batch ingestion vs. row-by-row: the N+1 problem
 
   Steps:
-  - [~] 2.1 — Parse and clean the raw dataset (MovieLens or TMDB CSV)
+  - [x] 2.1 — Parse and clean the raw dataset (MovieLens or TMDB CSV)
               Goal: Clean, typed Pydantic models for each entity type
               Concept taught: data contracts, Pydantic over dicts/dataclasses
               Key decision: which dataset and why?
 
-  - [ ] 2.2 — Write the ingestion pipeline
+  - [~] 2.2 — Write the ingestion pipeline
               Goal: CSV → Pydantic models → Cypher MERGE → Neo4j
               Concept taught: MERGE semantics, idempotency
               Key decision: batch size, transaction boundaries
